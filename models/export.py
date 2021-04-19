@@ -55,8 +55,10 @@ if __name__ == '__main__':
                 m.act = SiLU()
         # elif isinstance(m, models.yolo.Detect):
         #     m.forward = m.forward_export  # assign forward (optional)
-    model.model[-1].export = not opt.grid  # set Detect() layer grid export
+    #model.model[-1].export = not opt.grid  # set Detect() layer grid export
+    model.model[-1].export = False
     y = model(img)  # dry run
+
 
     # TorchScript export
     try:
